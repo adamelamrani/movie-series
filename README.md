@@ -1,30 +1,31 @@
-# React + TypeScript + Vite
+# Coding Challenge
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project has been created using the following technologies:
 
-Currently, two official plugins are available:
+- [Vite](https://vitejs.dev/) - Next Generation Frontend Tooling
+- [React](https://reactjs.org/) - A JavaScript library for building user interfaces
+- [TypeScript](https://www.typescriptlang.org/) - TypeScript extends JavaScript by adding types
+- [ESLint](https://eslint.org/) - Find and fix problems in your JavaScript code
+- [Prettier](https://prettier.io/) - An opinionated code formatter
+- [Testing Library](https://testing-library.com/) - Simple and complete testing utilities that encourage good testing practices
+- [Vitest](https://vitest.dev/guide/) - A test runner for Vite
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Getting Started
 
-## Expanding the ESLint configuration
+First, install dependencies and run the development server:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+```bash
+yarn && yarn dev
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Running Tests
+
+```bash
+yarn test
+```
+
+## ESLint
+
+```bash
+yarn lint
+```
