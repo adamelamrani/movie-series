@@ -26,6 +26,14 @@ yarn test
 
 ## ESLint
 
+``
+
 ```bash
 yarn lint
+```
+
+## TypeScript
+
+```bash
+yarn watch-ts
 ```
