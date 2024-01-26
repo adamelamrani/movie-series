@@ -1,14 +1,21 @@
 import { Route, Routes } from 'react-router-dom';
 import App from '../App';
 import Error from '../pages/error/Error';
+import TopNavBar from '../components/nav/TopNavBar';
 
-const Layout = () => {
+const MainLayout = () => {
   return (
-    <Routes>
-      <Route path="/" Component={App} />
-      <Route path="*" Component={Error} />
-    </Routes>
+    <>
+      <TopNavBar />
+      <Routes>
+        {/*Entry page*/}
+        <Route path="/" Component={App} />
+
+        {/*Error page*/}
+        <Route path="*" Component={Error} />
+      </Routes>
+    </>
   );
 };
 
-export default Layout;
+export default MainLayout;
