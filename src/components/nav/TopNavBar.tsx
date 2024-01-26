@@ -16,7 +16,7 @@ const TopNavBar = () => {
         <ul className={`${styles.navList} ${menuOpen ? styles.active : ''}`}>
           <li className={styles.logo}>
             <a href="/">
-              <img src={logo} alt="Movie Series Logo" height="40px" />
+              <img src={logo} alt="Movie Series Logo" width={40} height={40} />
             </a>
           </li>
           <li>
