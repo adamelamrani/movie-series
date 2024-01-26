@@ -9,6 +9,7 @@ This project has been created using the following technologies:
 - [Prettier](https://prettier.io/) - An opinionated code formatter
 - [Testing Library](https://testing-library.com/) - Simple and complete testing utilities that encourage good testing practices
 - [Vitest](https://vitest.dev/guide/) - A test runner for Vite
+- [React Router DOM](https://reactrouter.com/web/guides/quick-start) - Declarative routing for React
 
 ## Getting Started
 
