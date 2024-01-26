@@ -13,7 +13,7 @@ const TopNavBar = () => {
         <button className={styles.burgerMenu} onClick={handleMenuToggle}>
           ☰
         </button>
-        <ul className={`${styles.navList} ${menuOpen && styles.active}`}>
+        <ul className={`${styles.navList} ${menuOpen ? styles.active : ''}`}>
           <li className={styles.logo}>
             <a href="/">
               <img src={logo} alt="Movie Series Logo" height="40px" />

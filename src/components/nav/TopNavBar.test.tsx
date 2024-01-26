@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest';
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import TopNavBar from './TopNavBar';
+import styles from './styles.module.css';
 
 describe('Given a TopNavBar component', () => {
   render(<TopNavBar />);
@@ -34,6 +35,21 @@ describe('Given a TopNavBar component', () => {
       expect(homeLink).toHaveAttribute('href', '/');
       expect(seriesLink).toHaveAttribute('href', '/series');
       expect(moviesLink).toHaveAttribute('href', '/movies');
+    });
+  });
+
+  describe('When it is rendered, it should render a button and a list with class navList', () => {
+    it('When the button is clicked, it should add class "active" to the list', () => {
+      const button = screen.getByRole('button');
+      const list = screen.getByRole('list');
+
+      expect(button).toBeInTheDocument();
+      expect(list).toHaveClass(styles.navList);
+      expect(list).not.toHaveClass(styles.active);
+
+      fireEvent.click(button);
+
+      expect(list).toHaveClass(`${styles.navList} ${styles.active}`);
     });
   });
 });
