@@ -26,8 +26,6 @@ yarn test
 
 ## ESLint
 
-``
-
 ```bash
 yarn lint
 ```
