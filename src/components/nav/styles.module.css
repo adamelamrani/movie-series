@@ -3,9 +3,6 @@
   justify-content: center;
   width: 100vw;
   margin: 0 auto;
-  position: absolute;
-  top: 0;
-  left: 0;
   background-color: #0f0e0e;
   border-bottom: 2px solid #0f0e0e;
 }
