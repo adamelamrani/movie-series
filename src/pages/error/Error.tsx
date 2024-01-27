@@ -1,5 +1,9 @@
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 const Error = () => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const movies = useSelector((state: any) => state.movies);
+  console.log(movies);
   const navigate = useNavigate();
   return (
     <div>
