@@ -1,0 +1,9 @@
+.listStyle {
+  box-sizing: border-box;
+  list-style: none;
+  border: 2px solid white;
+  max-width: 1440px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
