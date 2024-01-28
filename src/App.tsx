@@ -1,12 +1,13 @@
 import './App.css';
 import Card from './components/card/Card';
+import Header from './components/header/Header';
 import List from './components/list/List';
-import { useGetPopularMoviesQuery } from './redux/api/moviesApi';
+import { useGetNowPlayingMoviesQuery } from './redux/api/moviesApi';
 import { FetchErrorTMDB } from './types/ErrorTMDB';
 import { Movies } from './types/Movies';
 
 function App() {
-  const { data, error } = useGetPopularMoviesQuery<{
+  const { data, error } = useGetNowPlayingMoviesQuery<{
     data: Movies;
     isLoading: boolean;
     error: FetchErrorTMDB;
@@ -25,6 +26,9 @@ function App() {
           </p>
         </>
       )}
+
+      <Header />
+      <h2>Now in Theatres</h2>
       <List>
         {data?.results.map((element) => (
           <Card

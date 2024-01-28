@@ -1,7 +1,7 @@
 .topNav {
   display: flex;
   justify-content: center;
-  width: 100vw;
+  width: 100%;
   margin: 0 auto;
   background-color: #0f0e0e;
   border-bottom: 2px solid #0f0e0e;
@@ -19,6 +19,7 @@
 .navContainer {
   width: 100%;
   max-width: 1440px;
+  padding: 0 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -31,7 +32,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
+  padding: 1rem;
   width: 30%;
   position: sticky;
   z-index: 1;
