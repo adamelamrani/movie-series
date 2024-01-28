@@ -1,11 +1,11 @@
 import './App.css';
+import Card from './components/card/Card';
 import List from './components/list/List';
 import { useGetPopularMoviesQuery } from './redux/api/moviesApi';
 import { FetchErrorTMDB } from './types/ErrorTMDB';
 import { Movies } from './types/Movies';
 
 function App() {
-  const imageUrlPrefix = 'https://image.tmdb.org/t/p/w500/';
   const { data, error } = useGetPopularMoviesQuery<{
     data: Movies;
     isLoading: boolean;
@@ -27,14 +27,11 @@ function App() {
       )}
       <List>
         {data?.results.map((element) => (
-          <li key={element.id}>
-            {element.title}
-            <img
-              width={200}
-              src={`${imageUrlPrefix}${element.poster_path}`}
-              alt={`Image poster from movie ${element.original_title}`}
-            />
-          </li>
+          <Card
+            key={element.id}
+            title={element.title}
+            poster={element.poster_path}
+          />
         ))}
       </List>
     </>
