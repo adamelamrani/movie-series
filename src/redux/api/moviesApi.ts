@@ -18,24 +18,7 @@ export const moviesApi = createApi({
       query: () => 'popular',
       transformResponse: (response: Movies) => response,
     }),
-
-    getTopRatedMovies: builder.query({
-      query: () => 'top_rated',
-    }),
-
-    getUpcomingMovies: builder.query({
-      query: () => 'upcoming',
-    }),
-
-    getNowPlayingMovies: builder.query({
-      query: () => 'now_playing',
-    }),
   }),
 });
 
-export const {
-  useGetPopularMoviesQuery,
-  useGetNowPlayingMoviesQuery,
-  useGetTopRatedMoviesQuery,
-  useGetUpcomingMoviesQuery,
-} = moviesApi;
+export const { useGetPopularMoviesQuery } = moviesApi;
