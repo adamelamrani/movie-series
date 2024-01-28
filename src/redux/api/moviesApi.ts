@@ -1,7 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { Movies } from '../../types/Movies';
 
-// Define a service using a base URL and expected endpoints
 export const moviesApi = createApi({
   reducerPath: 'moviesReducerApi',
   baseQuery: fetchBaseQuery({
@@ -15,26 +14,25 @@ export const moviesApi = createApi({
     },
   }),
   endpoints: (builder) => ({
-    getPopularMovies: builder.query<Movies, string>({
+    getPopularMovies: builder.query({
       query: () => 'popular',
+      transformResponse: (response: Movies) => response,
     }),
 
-    getTopRatedMovies: builder.query<Movies, string>({
+    getTopRatedMovies: builder.query({
       query: () => 'top_rated',
     }),
 
-    getUpcomingMovies: builder.query<Movies, string>({
+    getUpcomingMovies: builder.query({
       query: () => 'upcoming',
     }),
 
-    getNowPlayingMovies: builder.query<Movies, string>({
+    getNowPlayingMovies: builder.query({
       query: () => 'now_playing',
     }),
   }),
 });
 
-// Export hooks for usage in functional components, which are
-// auto-generated based on the defined endpoints
 export const {
   useGetPopularMoviesQuery,
   useGetNowPlayingMoviesQuery,

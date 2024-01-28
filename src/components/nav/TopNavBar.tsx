@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import styles from './styles.module.css';
 import logo from '../../assets/M.png';
+import { Link } from 'react-router-dom';
 
 const TopNavBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -20,13 +21,13 @@ const TopNavBar = () => {
             </a>
           </li>
           <li>
-            <a href="/">Home</a>
+            <Link to={'/'}>Home</Link>
           </li>
           <li>
-            <a href="/series">Series</a>
+            <Link to={'/series'}>Series</Link>
           </li>
           <li>
-            <a href="/movies">Movies</a>
+            <Link to={'/movies'}>Movies</Link>
           </li>
         </ul>
         <form>

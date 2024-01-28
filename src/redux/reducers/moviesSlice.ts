@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Movies } from '../../types/Movies';
 
 const initialState: Movies = {
@@ -12,13 +12,14 @@ export const moviesSlice = createSlice({
   name: 'moviesReducerApi',
   initialState,
   reducers: {
-    setMovies(state, action) {
-      state.results = action.payload;
+    setMovies: (state, action: PayloadAction<Movies>) => {
+      state.results = action.payload.results;
+      state.page = action.payload.page;
+      state.total_pages = action.payload.total_pages;
+      state.total_results = action.payload.total_results;
     },
   },
 });
 
-// Action creators are generated for each case reducer function
 export const { setMovies } = moviesSlice.actions;
-
 export default moviesSlice.reducer;
