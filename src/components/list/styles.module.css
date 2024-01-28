@@ -1,9 +1,17 @@
 .listStyle {
   box-sizing: border-box;
   list-style: none;
-  border: 2px solid white;
   max-width: 1440px;
   width: 100%;
   margin: 0;
   padding: 0;
+  display: grid;
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(200px, 1fr)
+  ); /* Mínimo 200px por tarjeta */
+  grid-template-rows: repeat(auto-fit, minmax(100px, 1fr));
+  grid-gap: 10px;
+  row-gap: 15px;
 }

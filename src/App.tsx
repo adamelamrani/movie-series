@@ -5,12 +5,14 @@ import { FetchErrorTMDB } from './types/ErrorTMDB';
 import { Movies } from './types/Movies';
 
 function App() {
+  const imageUrlPrefix = 'https://image.tmdb.org/t/p/w500/';
   const { data, error } = useGetPopularMoviesQuery<{
     data: Movies;
     isLoading: boolean;
     error: FetchErrorTMDB;
   }>({});
 
+  console.log(data);
   return (
     <>
       {error && (
@@ -25,7 +27,14 @@ function App() {
       )}
       <List>
         {data?.results.map((element) => (
-          <li key={element.id}>{element.title}</li>
+          <li key={element.id}>
+            {element.title}
+            <img
+              width={200}
+              src={`${imageUrlPrefix}${element.poster_path}`}
+              alt={`Image poster from movie ${element.original_title}`}
+            />
+          </li>
         ))}
       </List>
     </>
