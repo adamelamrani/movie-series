@@ -1,10 +1,15 @@
 import Logo from '../../assets/M.png';
+import styles from './styles.module.css';
 
-const Header = () => {
+interface HeaderProps {
+  title: string;
+}
+
+const Header = ({ title }: HeaderProps) => {
   return (
-    <header>
-      <img src={Logo} width={80} alt="Movie Series Logo" />
-      <h1>Movie - Series</h1>
+    <header className={styles.headerContainer}>
+      <img src={Logo} width={100} alt="Movie Series Logo" />
+      <h1>{title}</h1>
     </header>
   );
 };

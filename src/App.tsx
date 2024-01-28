@@ -27,8 +27,7 @@ function App() {
         </>
       )}
 
-      <Header />
-      <h2>Now in Theatres</h2>
+      <Header title="Now in Theaters" />
       <List>
         {data?.results.map((element) => (
           <Card
