@@ -1,13 +1,13 @@
 import Card from '../../components/card/Card';
 import Header from '../../components/header/Header';
 import List from '../../components/list/List';
-import { useGetNowPlayingMoviesQuery } from '../../redux/api/moviesApi';
+import { useGetPopularSeriesQuery } from '../../redux/api/seriesApi';
 import { FetchErrorTMDB } from '../../types/ErrorTMDB';
-import { Movies } from '../../types/Movies';
+import SeriesInterface from '../../types/Series';
 
 const Series = () => {
-  const { data, error } = useGetNowPlayingMoviesQuery<{
-    data: Movies;
+  const { data, error } = useGetPopularSeriesQuery<{
+    data: SeriesInterface;
     isLoading: boolean;
     error: FetchErrorTMDB;
   }>({});
@@ -26,12 +26,12 @@ const Series = () => {
         </>
       )}
 
-      <Header title="Top rated series" />
+      <Header title="Popular Series" />
       <List>
         {data?.results.map((element) => (
           <Card
             key={element.id}
-            title={element.title}
+            title={element.name}
             poster={element.poster_path}
           />
         ))}
