@@ -1,0 +1,71 @@
+.suggestionsBox {
+  z-index: 2;
+  position: absolute;
+  top: 60px;
+  right: 15px;
+  margin: 0px;
+  width: 300px;
+  padding: 0px;
+  max-height: 300px;
+  overflow: auto;
+  background: #ffffff;
+  color: #000000;
+  border: 1px solid #000000;
+  border-top: none;
+}
+
+.closedBox {
+  display: none;
+}
+
+.suggestionCard {
+  padding: 5px 10px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid #000000;
+}
+
+.suggestionImage {
+  max-height: 90px;
+  height: 100%;
+}
+
+.noSuggestionImage {
+  height: 90px;
+  width: 60px;
+  min-width: 60px;
+  background: #000000a4;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.suggestionInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-left: 10px;
+}
+
+.suggestionTitle {
+  font-weight: bold;
+  text-align: start;
+  margin: 0px;
+  font-size: 14px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media screen and (max-width: 768px) {
+  .suggestionsBox {
+    width: 100%;
+    top: 75px;
+    right: 0px;
+  }
+}

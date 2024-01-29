@@ -1,13 +1,13 @@
 import Card from '../../components/card/Card';
 import Header from '../../components/header/Header';
 import List from '../../components/list/List';
-import { useGetTopRatedSeriesQuery } from '../../redux/api/seriesApi';
+import { useGetTopRatedMoviesQuery } from '../../redux/api/moviesApi';
 import { FetchErrorTMDB } from '../../types/ErrorTMDB';
-import SeriesInterface from '../../types/Series';
+import { Movies as MoviesType } from '../../types/Movies';
 
-const Series = () => {
-  const { data, error } = useGetTopRatedSeriesQuery<{
-    data: SeriesInterface;
+const Movies = () => {
+  const { data, error } = useGetTopRatedMoviesQuery<{
+    data: MoviesType;
     isLoading: boolean;
     error: FetchErrorTMDB;
   }>({});
@@ -17,7 +17,7 @@ const Series = () => {
       {error && (
         <>
           <p>
-            <i>There has been an error loading the series</i>
+            <i>There has been an error loading the movies</i>
           </p>
           <p>
             <i>{error.data.status_message}</i>
@@ -25,13 +25,13 @@ const Series = () => {
         </>
       )}
 
-      <Header title="Top Rated Series" />
+      <Header title="Top Rated Movies" />
       <List>
         {data?.results.map((element) => (
           <Card
             id={element.id}
             key={element.id}
-            title={element.name}
+            title={element.title}
             poster={element.poster_path}
             vote_average={element.vote_average}
             vote_count={element.vote_count}
@@ -42,4 +42,4 @@ const Series = () => {
   );
 };
 
-export default Series;
+export default Movies;
