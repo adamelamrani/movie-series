@@ -1,10 +1,10 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import SeriesInterface from '../../types/Series';
 
-export const seriesApi = createApi({
-  reducerPath: 'seriesApi',
+export const multiApi = createApi({
+  reducerPath: 'multiApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://api.themoviedb.org/3/tv/',
+    baseUrl: 'https://api.themoviedb.org/3/search/multi',
     prepareHeaders: (headers) => {
       headers.set(
         'Authorization',
@@ -14,16 +14,11 @@ export const seriesApi = createApi({
     },
   }),
   endpoints: (builder) => ({
-    getPopularSeries: builder.query({
-      query: () => 'popular',
-      transformResponse: (response: SeriesInterface) => response,
-    }),
-    getTopRatedSeries: builder.query({
-      query: () => 'top_rated',
+    getAnyResult: builder.mutation({
+      query: (query) => `?query=${query}`,
       transformResponse: (response: SeriesInterface) => response,
     }),
   }),
 });
 
-export const { useGetPopularSeriesQuery, useGetTopRatedSeriesQuery } =
-  seriesApi;
+export const { useGetAnyResultMutation } = multiApi;
