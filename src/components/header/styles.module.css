@@ -1,0 +1,7 @@
+.headerContainer {
+  gap: 10px;
+  display: flex;
+  align-items: center;
+  font-family: 'League Gothic', sans-serif;
+  color: #ffeda6;
+}
