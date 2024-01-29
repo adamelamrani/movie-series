@@ -34,6 +34,8 @@ function App() {
             key={element.id}
             title={element.title}
             poster={element.poster_path}
+            vote_average={element.vote_average}
+            vote_count={element.vote_count}
           />
         ))}
       </List>
