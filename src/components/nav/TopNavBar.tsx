@@ -48,7 +48,12 @@ const TopNavBar = () => {
     }
   }, [data]);
 
-  console.log(error);
+  useEffect(() => {
+    if (error) {
+      console.log(error);
+    }
+  }, [error]);
+
   return (
     <nav className={styles.topNav}>
       <div className={styles.navContainer}>
@@ -57,18 +62,24 @@ const TopNavBar = () => {
         </button>
         <ul className={`${styles.navList} ${menuOpen ? styles.active : ''}`}>
           <li className={styles.logo}>
-            <Link to="/">
+            <Link to="/" onClick={handleMenuToggle}>
               <img src={logo} alt="Movie Series Logo" width={40} height={40} />
             </Link>
           </li>
           <li>
-            <Link to={'/'}>Home</Link>
+            <Link to={'/'} onClick={handleMenuToggle}>
+              Home
+            </Link>
           </li>
           <li>
-            <Link to={'/series'}>Series</Link>
+            <Link to={'/series'} onClick={handleMenuToggle}>
+              Series
+            </Link>
           </li>
           <li>
-            <Link to={'/movies'}>Movies</Link>
+            <Link to={'/movies'} onClick={handleMenuToggle}>
+              Movies
+            </Link>
           </li>
         </ul>
         <form onSubmit={handleFormSubmit}>

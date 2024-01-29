@@ -17,7 +17,6 @@ const Suggestions = ({
     (result) => result.media_type !== 'person',
   );
 
-  console.log(filteredResults);
   return (
     <div
       ref={suggestionRef}

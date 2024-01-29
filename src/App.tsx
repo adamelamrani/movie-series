@@ -20,6 +20,7 @@ function App() {
     isLoading: boolean;
     error: FetchErrorTMDB;
   }>({});
+
   return (
     <>
       {error && (
