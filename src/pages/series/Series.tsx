@@ -12,7 +12,6 @@ const Series = () => {
     error: FetchErrorTMDB;
   }>({});
 
-  console.log(data);
   return (
     <>
       {error && (

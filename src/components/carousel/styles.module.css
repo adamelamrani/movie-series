@@ -1,5 +1,5 @@
 .carousel::-webkit-scrollbar {
-  display: none; /* Oculta el scrollbar en Chrome y Safari */
+  display: none;
 }
 
 .carousel {
