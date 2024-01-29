@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import SeriesInterface from '../../types/Series';
+import MultiInterface from '../../types/Multi';
 
 export const multiApi = createApi({
   reducerPath: 'multiApi',
@@ -16,7 +16,7 @@ export const multiApi = createApi({
   endpoints: (builder) => ({
     getAnyResult: builder.mutation({
       query: (query) => `?query=${query}`,
-      transformResponse: (response: SeriesInterface) => response,
+      transformResponse: (response: MultiInterface) => response,
     }),
   }),
 });
