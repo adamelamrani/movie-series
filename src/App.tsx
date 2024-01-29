@@ -39,6 +39,7 @@ function App() {
       <Carousel>
         {data?.results.map((element) => (
           <Card
+            linkTo="movie"
             key={element.id}
             id={element.id}
             title={element.title}
@@ -63,6 +64,7 @@ function App() {
       <Carousel>
         {seriesData?.results.map((element) => (
           <Card
+            linkTo="serie"
             key={element.id}
             id={element.id}
             title={element.name}
