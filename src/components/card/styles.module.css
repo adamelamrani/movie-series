@@ -1,0 +1,96 @@
+.cardContainer {
+  display: flex;
+  position: relative;
+  flex: 0 0 250px;
+  flex-direction: column;
+  align-items: center;
+  transition:
+    box-shadow 0.25s ease-in-out,
+    transform 0.5s ease-in-out;
+  cursor: pointer;
+}
+
+.cardContainer:hover {
+  box-shadow: 0 0 10px 0 rgba(228, 208, 32, 0.815);
+  transition:
+    box-shadow 0.25s ease-in-out,
+    transform 0.5s ease-in-out;
+  transform: scale(1.05);
+}
+
+.movieImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.titleBox {
+  display: flex;
+  height: 120px;
+  flex-direction: column;
+  align-items: start;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.25rem 1.5rem;
+  background-color: #0f0e0e;
+}
+
+.titleHeader {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  align-items: start;
+  width: 100%;
+  margin-top: 8px;
+}
+
+.movieTitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  margin: 0;
+  text-align: start;
+  width: 100%;
+  background-color: #0f0e0e;
+  max-height: 80px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.movieParagraph {
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+}
+
+.starIcon {
+  color: #f1c40f;
+  font-size: 1.5rem;
+}
+
+.bookmarkIcon {
+  color: #dbac29;
+  font-size: 2.5rem;
+  position: absolute;
+  top: 0;
+  right: 15px;
+}
+
+.bookmarkIcon:hover {
+  color: #f1c40f;
+}
+
+@media screen and (max-width: 768px) {
+  .cardContainer {
+    transition: none;
+  }
+
+  .cardContainer:hover {
+    box-shadow: none;
+    transform: none;
+  }
+}
