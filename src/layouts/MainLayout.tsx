@@ -4,6 +4,7 @@ import Error from '../pages/error/Error';
 import TopNavBar from '../components/nav/TopNavBar';
 import Series from '../pages/series/Series';
 import Movies from '../pages/movies/Movies';
+import MovieDetails from '../pages/movieDetails/MovieDetails';
 
 const MainLayout = () => {
   return (
@@ -14,6 +15,7 @@ const MainLayout = () => {
         <Route path="/" Component={App} />
         <Route path="/series" Component={Series} />
         <Route path="/movies" Component={Movies} />
+        <Route path="/movie/:id" Component={MovieDetails} />
 
         {/*Error page*/}
         <Route path="*" Component={Error} />

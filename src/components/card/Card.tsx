@@ -14,10 +14,14 @@ interface CardProps {
 const Card = ({ id, title, poster, vote_average }: CardProps) => {
   const navigate = useNavigate();
   const imageUrlPrefix = 'https://image.tmdb.org/t/p/w500/';
+  const path = window.location.pathname;
+
   return (
     <li
       className={styles.cardContainer}
-      onClick={() => navigate(`/serie/${id}`)}
+      onClick={() =>
+        navigate(path === '/movies' ? `/movie/${id}` : `/serie/${id}`)
+      }
     >
       <img
         className={styles.movieImage}
