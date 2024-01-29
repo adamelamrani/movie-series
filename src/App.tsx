@@ -32,6 +32,7 @@ function App() {
         {data?.results.map((element) => (
           <Card
             key={element.id}
+            id={element.id}
             title={element.title}
             poster={element.poster_path}
             vote_average={element.vote_average}

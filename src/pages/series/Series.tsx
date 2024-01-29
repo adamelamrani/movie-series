@@ -30,6 +30,7 @@ const Series = () => {
       <List>
         {data?.results.map((element) => (
           <Card
+            id={element.id}
             key={element.id}
             title={element.name}
             poster={element.poster_path}

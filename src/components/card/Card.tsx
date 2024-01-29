@@ -1,18 +1,24 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styles from './styles.module.css';
 import { faStar, faBookmark } from '@fortawesome/free-solid-svg-icons';
+import { useNavigate } from 'react-router-dom';
 
 interface CardProps {
+  id: number;
   title: string;
   poster: string;
   vote_average: number;
   vote_count: number;
 }
 
-const Card = ({ title, poster, vote_average }: CardProps) => {
+const Card = ({ id, title, poster, vote_average }: CardProps) => {
+  const navigate = useNavigate();
   const imageUrlPrefix = 'https://image.tmdb.org/t/p/w500/';
   return (
-    <li className={styles.cardContainer}>
+    <li
+      className={styles.cardContainer}
+      onClick={() => navigate(`/serie/${id}`)}
+    >
       <img
         className={styles.movieImage}
         src={`${imageUrlPrefix}${poster}`}
