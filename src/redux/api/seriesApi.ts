@@ -1,5 +1,3 @@
-///popular
-
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import SeriesInterface from '../../types/Series';
 
@@ -20,7 +18,12 @@ export const seriesApi = createApi({
       query: () => 'popular',
       transformResponse: (response: SeriesInterface) => response,
     }),
+    getTopRatedSeries: builder.query({
+      query: () => 'top_rated',
+      transformResponse: (response: SeriesInterface) => response,
+    }),
   }),
 });
 
-export const { useGetPopularSeriesQuery } = seriesApi;
+export const { useGetPopularSeriesQuery, useGetTopRatedSeriesQuery } =
+  seriesApi;
