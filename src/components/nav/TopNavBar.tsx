@@ -1,12 +1,17 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import styles from './styles.module.css';
 import logo from '../../assets/M.png';
 import { Link } from 'react-router-dom';
 import { useGetAnyResultMutation } from '../../redux/api/multiApi';
+import Suggestions from '../suggestions/Suggestions';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch, faClose } from '@fortawesome/free-solid-svg-icons';
 
 const TopNavBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [query, setQuery] = useState('');
+  const [suggestionsOpen, setSuggestionsOpen] = useState(false);
+  const suggestionsRef = useRef(null);
   const handleMenuToggle = () => {
     setMenuOpen(!menuOpen);
   };
@@ -21,9 +26,29 @@ const TopNavBar = () => {
     getAnyResult(query);
   };
 
-  console.log(data);
-  console.log(error);
+  const handleOutsideClick = (e: MouseEvent) => {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    //@ts-ignore-next-line
+    if (suggestionsRef.current && !suggestionsRef.current.contains(e.target)) {
+      setSuggestionsOpen(false);
+    }
+  };
 
+  useEffect(() => {
+    document.addEventListener('mousedown', handleOutsideClick);
+
+    return () => {
+      document.removeEventListener('mousedown', handleOutsideClick);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (data) {
+      setSuggestionsOpen(true);
+    }
+  }, [data]);
+
+  console.log(error);
   return (
     <nav className={styles.topNav}>
       <div className={styles.navContainer}>
@@ -51,9 +76,25 @@ const TopNavBar = () => {
             className={styles.searchBar}
             type="text"
             placeholder="Search"
+            value={query}
             onChange={handleChange}
           />
+          <FontAwesomeIcon
+            icon={query ? faClose : faSearch}
+            className={styles.searchIcon}
+            onClick={() => {
+              setSuggestionsOpen(false);
+              setQuery('');
+            }}
+          />
         </form>
+        {data && (
+          <Suggestions
+            suggestionRef={suggestionsRef}
+            suggestions={data}
+            isOpen={suggestionsOpen}
+          />
+        )}
       </div>
     </nav>
   );
