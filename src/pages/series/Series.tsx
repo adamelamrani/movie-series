@@ -1,12 +1,12 @@
 import Card from '../../components/card/Card';
 import Header from '../../components/header/Header';
 import List from '../../components/list/List';
-import { useGetPopularSeriesQuery } from '../../redux/api/seriesApi';
+import { useGetTopRatedSeriesQuery } from '../../redux/api/seriesApi';
 import { FetchErrorTMDB } from '../../types/ErrorTMDB';
 import SeriesInterface from '../../types/Series';
 
 const Series = () => {
-  const { data, error } = useGetPopularSeriesQuery<{
+  const { data, error } = useGetTopRatedSeriesQuery<{
     data: SeriesInterface;
     isLoading: boolean;
     error: FetchErrorTMDB;
@@ -17,7 +17,7 @@ const Series = () => {
       {error && (
         <>
           <p>
-            <i>There has been an error loading the</i>
+            <i>There has been an error loading the series</i>
           </p>
           <p>
             <i>{error.data.status_message}</i>
@@ -25,7 +25,7 @@ const Series = () => {
         </>
       )}
 
-      <Header title="Popular Series" />
+      <Header title="Top Rated Series" />
       <List>
         {data?.results.map((element) => (
           <Card

@@ -20,7 +20,12 @@ export const seriesApi = createApi({
       query: () => 'popular',
       transformResponse: (response: SeriesInterface) => response,
     }),
+    getTopRatedSeries: builder.query({
+      query: () => 'top_rated',
+      transformResponse: (response: SeriesInterface) => response,
+    }),
   }),
 });
 
-export const { useGetPopularSeriesQuery } = seriesApi;
+export const { useGetPopularSeriesQuery, useGetTopRatedSeriesQuery } =
+  seriesApi;

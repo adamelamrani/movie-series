@@ -17,7 +17,7 @@ const Movies = () => {
       {error && (
         <>
           <p>
-            <i>There has been an error loading the</i>
+            <i>There has been an error loading the movies</i>
           </p>
           <p>
             <i>{error.data.status_message}</i>
