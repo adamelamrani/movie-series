@@ -7,6 +7,7 @@ import Movies from '../pages/movies/Movies';
 import MovieDetails from '../pages/movieDetails/MovieDetails';
 import SerieDetails from '../pages/serieDetails/SerieDetails';
 import ScrollToTop from '../components/scroll/Scroll';
+import Favourites from '../pages/favourites/Favourites';
 
 const MainLayout = () => {
   ScrollToTop();
@@ -20,6 +21,7 @@ const MainLayout = () => {
         <Route path="/movies" Component={Movies} />
         <Route path="/movie/:id" Component={MovieDetails} />
         <Route path="/serie/:id" Component={SerieDetails} />
+        <Route path="/favourites" Component={Favourites} />
 
         {/*Error page*/}
         <Route path="*" Component={Error} />
