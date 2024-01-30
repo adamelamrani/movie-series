@@ -81,6 +81,11 @@ const TopNavBar = () => {
               Movies
             </Link>
           </li>
+          <li>
+            <Link to={'/favourites'} onClick={handleMenuToggle}>
+              My Favourites
+            </Link>
+          </li>
         </ul>
         <form onSubmit={handleFormSubmit}>
           <input
