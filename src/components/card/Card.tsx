@@ -34,27 +34,32 @@ const Card = ({
   movie,
   serie,
 }: CardProps) => {
-  const favouriteMovies = useAppSelector((state) => state.movies.movies);
-  const favouriteSeries = useAppSelector((state) => state.movies.series);
+  const favourite = useAppSelector((state) => state.movies);
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const imageUrlPrefix = 'https://image.tmdb.org/t/p/w500/';
-  const isFavouriteMovie = favouriteMovies.some((element) => element.id === id);
-  const isFavouriteSerie = favouriteSeries.some((element) => element.id === id);
 
-  const addOrRemoveMovies = (element: Movie) => {
+  console.log(favourite);
+  const isFavouriteMovie = favourite.movies.some(
+    (element) => element.id === id,
+  );
+  const isFavouriteSerie = favourite.series.some(
+    (element) => element.id === id,
+  );
+
+  const addOrRemoveMovie = (movie: Movie) => {
     if (isFavouriteMovie) {
-      dispatch(removeMovieFromFavourites(element));
+      dispatch(removeMovieFromFavourites(movie));
     } else {
-      dispatch(addMovieToFavourites(element));
+      dispatch(addMovieToFavourites(movie));
     }
   };
 
-  const addOrRemoveSeries = (element: SeriesResult) => {
+  const addOrRemoveSerie = (serie: SeriesResult) => {
     if (isFavouriteSerie) {
-      dispatch(removeSeriesFromFavourites(element));
+      dispatch(removeSeriesFromFavourites(serie));
     } else {
-      dispatch(addSeriesToFavourites(element));
+      dispatch(addSeriesToFavourites(serie));
     }
   };
 
@@ -80,8 +85,8 @@ const Card = ({
         className={styles.bookmarkIcon}
         onClick={() =>
           movie
-            ? addOrRemoveMovies(movie as Movie)
-            : addOrRemoveSeries(serie as SeriesResult)
+            ? addOrRemoveMovie(movie as Movie)
+            : addOrRemoveSerie(serie as SeriesResult)
         }
       />
     </li>
