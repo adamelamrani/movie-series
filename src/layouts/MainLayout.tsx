@@ -6,8 +6,10 @@ import Series from '../pages/series/Series';
 import Movies from '../pages/movies/Movies';
 import MovieDetails from '../pages/movieDetails/MovieDetails';
 import SerieDetails from '../pages/serieDetails/SerieDetails';
+import ScrollToTop from '../components/scroll/Scroll';
 
 const MainLayout = () => {
+  ScrollToTop();
   return (
     <>
       <TopNavBar />
