@@ -53,13 +53,14 @@ const MovieDetails = () => {
       <header className={styles.sectionHeader}>
         <div className={styles.headerTitles}>
           <h1 className={styles.headingOne}>{data?.title}</h1>
+          <FontAwesomeIcon
+            className={styles.bookMark}
+            onClick={() => addOrRemoveMovie(data as Movie)}
+            icon={isFavourite ? faBookmark : emptyBookmark}
+            color="yellow"
+          />
         </div>
-        <FontAwesomeIcon
-          className={styles.bookMark}
-          onClick={() => addOrRemoveMovie(data as Movie)}
-          icon={isFavourite ? faBookmark : emptyBookmark}
-          color="yellow"
-        />
+
         <div className={styles.headerInfo}>
           <div>
             <h4 className={styles.headingFour}>Total score</h4>

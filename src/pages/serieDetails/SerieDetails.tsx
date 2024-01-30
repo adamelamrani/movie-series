@@ -50,13 +50,14 @@ const SerieDetails = () => {
       <header className={styles.sectionHeader}>
         <div className={styles.headerTitles}>
           <h1 className={styles.headingOne}>{data?.name}</h1>
+          <FontAwesomeIcon
+            className={styles.bookMark}
+            onClick={() => addOrRemoveSerie(data as SeriesDetailsInterface)}
+            icon={isFavourite ? faBookmark : emptyBookmark}
+            color="yellow"
+          />
         </div>
-        <FontAwesomeIcon
-          className={styles.bookMark}
-          onClick={() => addOrRemoveSerie(data as SeriesDetailsInterface)}
-          icon={isFavourite ? faBookmark : emptyBookmark}
-          color="yellow"
-        />
+
         <div className={styles.headerInfo}>
           <div>
             <h4 className={styles.headingFour}>Total score</h4>
