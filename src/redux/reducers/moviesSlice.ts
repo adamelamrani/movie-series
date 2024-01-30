@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { Movie } from '../../types/Movies';
+import { Movie, MovieDetails } from '../../types/Movies';
 import { SeriesResult } from '../../types/Series';
 
 interface Favourites {
@@ -16,7 +16,10 @@ export const moviesSlice = createSlice({
   name: 'moviesReducerApi',
   initialState,
   reducers: {
-    addMovieToFavourites: (state, action: PayloadAction<Movie>) => {
+    addMovieToFavourites: (
+      state,
+      action: PayloadAction<Movie | MovieDetails>,
+    ) => {
       state.movies = [...state.movies, action.payload];
     },
     removeMovieFromFavourites: (state, action: PayloadAction<Movie>) => {

@@ -1,35 +1,65 @@
+import styles from './styles.module.css';
+import Carousel from '../../components/carousel/Carousel';
+import Card from '../../components/card/Card';
+import noImage from '../../assets/no-image.jpg';
 import { useParams } from 'react-router-dom';
 import {
   useGetMovieByIdQuery,
   useGetMovieTrailerQuery,
 } from '../../redux/api/moviesApi';
-import styles from './styles.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faStar } from '@fortawesome/free-solid-svg-icons';
-import Carousel from '../../components/carousel/Carousel';
-import Card from '../../components/card/Card';
+import { faBookmark as emptyBookmark } from '@fortawesome/free-regular-svg-icons';
+import { faBookmark, faStar } from '@fortawesome/free-solid-svg-icons';
 import { useGetMoviesRecomendationsQuery } from '../../redux/api/discoverApi';
-import noImage from '../../assets/no-image.jpg';
+import { useAppDispatch, useAppSelector } from '../../redux/store';
+import {
+  addMovieToFavourites,
+  removeMovieFromFavourites,
+} from '../../redux/reducers/moviesSlice';
+import { Movie } from '../../types/Movies';
 
 const MovieDetails = () => {
   const posterPrefix = 'https://image.tmdb.org/t/p/w500/';
+  const favouriteMovies = useAppSelector((state) => state.movies.movies);
+  const dispatch = useAppDispatch();
   const { id } = useParams<{ id: string }>();
   const { data } = useGetMovieByIdQuery(id as string, {});
   const { data: video } = useGetMovieTrailerQuery(id as string, {});
   const { data: similar } = useGetMoviesRecomendationsQuery(id as string, {});
+
   const teaserVideo = video?.results.filter(
     (element) => element.type === 'Trailer',
+  );
+
+  const isFavourite = favouriteMovies.some(
+    (element) => element.id === data?.id,
   );
 
   const numberSeparator = (number: number) => {
     return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   };
+
+  const addOrRemoveMovie = (movie: Movie) => {
+    if (isFavourite) {
+      dispatch(removeMovieFromFavourites(movie));
+    } else {
+      dispatch(addMovieToFavourites(movie));
+    }
+  };
+
+  console.log(data);
   return (
     <div className={styles.movieDetailsBox}>
       <header className={styles.sectionHeader}>
         <div className={styles.headerTitles}>
           <h1 className={styles.headingOne}>{data?.title}</h1>
         </div>
+        <FontAwesomeIcon
+          className={styles.bookMark}
+          onClick={() => addOrRemoveMovie(data as Movie)}
+          icon={isFavourite ? faBookmark : emptyBookmark}
+          color="yellow"
+        />
         <div className={styles.headerInfo}>
           <div>
             <h4 className={styles.headingFour}>Total score</h4>

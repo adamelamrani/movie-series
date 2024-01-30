@@ -5,6 +5,11 @@
   max-width: 1440px;
 }
 
+.bookMark {
+  color: #dbac29;
+  font-size: 2.5rem;
+}
+
 .generalInfo {
   display: flex;
   flex-direction: column;
