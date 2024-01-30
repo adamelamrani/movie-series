@@ -1,4 +1,4 @@
-import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit';
 import { moviesApi } from './api/moviesApi';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 import { setupListeners } from '@reduxjs/toolkit/query';
@@ -7,13 +7,9 @@ import { seriesApi } from './api/seriesApi';
 import { multiApi } from './api/multiApi';
 import { discoverApi } from './api/discoverApi';
 
-const rootReducer = combineReducers({
-  movies: moviesReducer,
-});
-
 export const store = configureStore({
   reducer: {
-    rootReducer,
+    movies: moviesReducer,
     [moviesApi.reducerPath]: moviesApi.reducer,
     [seriesApi.reducerPath]: seriesApi.reducer,
     [multiApi.reducerPath]: multiApi.reducer,

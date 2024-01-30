@@ -36,3 +36,40 @@ yarn lint
 ```bash
 yarn watch-ts
 ```
+
+## Folder Structure
+
+```
+.
+├── public
+├── src
+│   ├── main.tsx
+│   ├── App.tsx
+│   ├── assets
+│   ├── components
+│   │   ├── card
+│   │   ├── carousel
+│   │   ├── header
+│   │   ├── list
+│   │   ├── nav
+│   │   ├── scroll
+│   │   ├── suggestion
+│   ├── layouts
+│   ├── pages
+│   │   ├── details
+│   │   ├── error
+│   │   ├── movieDetails
+│   │   ├── movies
+│   │   ├── serieDetails
+│   │   ├── series
+│   ├── redux
+│   │   ├── api
+│   │   ├── reducers
+│   │   ├── store
+│   ├── types
+
+```
+
+## Deployment
+
+The project is deployed on [Vercel](https://movie-series-orcin.vercel.app/).

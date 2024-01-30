@@ -64,12 +64,13 @@
 .movieParagraph {
   display: flex;
   flex-direction: row;
+  align-items: center;
   margin: 0;
 }
 
 .starIcon {
   color: #f1c40f;
-  font-size: 1.5rem;
+  font-size: 1rem;
 }
 
 .bookmarkIcon {

@@ -9,6 +9,7 @@ import { faStar } from '@fortawesome/free-solid-svg-icons';
 import Carousel from '../../components/carousel/Carousel';
 import Card from '../../components/card/Card';
 import { useGetMoviesRecomendationsQuery } from '../../redux/api/discoverApi';
+import noImage from '../../assets/no-image.jpg';
 
 const MovieDetails = () => {
   const posterPrefix = 'https://image.tmdb.org/t/p/w500/';
@@ -54,13 +55,15 @@ const MovieDetails = () => {
       <section className={styles.generalInfo}>
         <div className={styles.imageAndVideo}>
           <div className={styles.imageCard}>
-            {data?.poster_path && (
-              <img
-                className={styles.movieDetailsImage}
-                src={`${posterPrefix}${data?.poster_path}`}
-                alt="Movie poster"
-              />
-            )}
+            <img
+              className={styles.movieDetailsImage}
+              src={
+                data?.poster_path
+                  ? `${posterPrefix}${data?.poster_path}`
+                  : noImage
+              }
+              alt="Movie poster"
+            />
             <div className={styles.movieInfo}>
               <div>
                 <h4 className={styles.headingFour}>Score</h4>
@@ -92,34 +95,39 @@ const MovieDetails = () => {
       <section className={styles.overview}>
         <h2 className={styles.headingTwo}>Overview</h2>
         <div className={styles.overViewWithImage}>
-          {data?.poster_path && (
-            <img
-              className={styles.overViewImage}
-              src={`${posterPrefix}${data?.poster_path}`}
-              alt="Movie poster"
-            />
-          )}
+          <img
+            className={styles.overViewImage}
+            src={
+              data?.poster_path
+                ? `${posterPrefix}${data?.poster_path}`
+                : noImage
+            }
+            alt="Movie poster"
+          />
           <p>{data?.overview}</p>
         </div>
       </section>
-      <section className={styles.similarMovies}>
-        <h2 className={(styles.headingTwo, styles.recommendedTitle)}>
-          Similar movies
-        </h2>
-        <Carousel>
-          {similar?.results.map((element) => (
-            <Card
-              linkTo="movie"
-              id={element.id}
-              key={element.id}
-              title={element.name}
-              poster={element.poster_path}
-              vote_average={element.vote_average}
-              vote_count={element.vote_count}
-            />
-          ))}
-        </Carousel>
-      </section>
+      {similar && similar?.results.length > 0 && (
+        <section className={styles.similarMovies}>
+          <h2 className={(styles.headingTwo, styles.recommendedTitle)}>
+            Similar movies
+          </h2>
+          <Carousel>
+            {similar?.results.map((element) => (
+              <Card
+                linkTo="movie"
+                id={element.id}
+                key={element.id}
+                title={element.title}
+                poster={element.poster_path}
+                vote_average={element.vote_average}
+                vote_count={element.vote_count}
+                movie={element}
+              />
+            ))}
+          </Carousel>
+        </section>
+      )}
     </div>
   );
 };

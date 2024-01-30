@@ -24,6 +24,11 @@
   display: flex;
   flex-direction: row;
   border-bottom: 1px solid #000000;
+  color: #000000;
+}
+
+.suggestionCard:hover {
+  color: #000000;
 }
 
 .suggestionImage {
