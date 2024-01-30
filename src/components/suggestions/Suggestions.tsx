@@ -6,12 +6,14 @@ interface SuggestionsProps {
   suggestions: MultiInterface;
   isOpen: boolean;
   suggestionRef: React.RefObject<HTMLDivElement>;
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const Suggestions = ({
   suggestions,
   isOpen,
   suggestionRef,
+  setOpen,
 }: SuggestionsProps) => {
   const imageUrlPrefix = 'https://image.tmdb.org/t/p/w500/';
   const filteredResults = suggestions.results.filter(
@@ -31,6 +33,7 @@ const Suggestions = ({
               : `/serie/${suggestion.id}`
           }
           className={styles.suggestionCard}
+          onClick={() => setOpen(false)}
           key={suggestion.id}
         >
           {suggestion.poster_path ? (

@@ -106,6 +106,7 @@ const TopNavBar = () => {
         </form>
         {data && (
           <Suggestions
+            setOpen={setSuggestionsOpen}
             suggestionRef={suggestionsRef}
             suggestions={data}
             isOpen={suggestionsOpen}
