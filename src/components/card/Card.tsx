@@ -39,7 +39,6 @@ const Card = ({
   const dispatch = useAppDispatch();
   const imageUrlPrefix = 'https://image.tmdb.org/t/p/w500/';
 
-  console.log(favourite);
   const isFavouriteMovie = favourite.movies.some(
     (element) => element.id === id,
   );
