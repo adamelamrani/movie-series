@@ -18,11 +18,11 @@ const SerieDetails = () => {
   const { data: similar } = useGetSeriesRecomendationsQuery(id as string, {
     skip: !data,
   });
-  console.log(similar);
+
   const teaserVideo = video?.results.filter(
     (element) => element.type === 'Trailer',
   );
-  console.log(data);
+
   return (
     <div className={styles.serieDetailsBox}>
       <header className={styles.sectionHeader}>

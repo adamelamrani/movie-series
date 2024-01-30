@@ -27,4 +27,7 @@ export const discoverApi = createApi({
   }),
 });
 
-export const { useGetSeriesRecomendationsQuery } = discoverApi;
+export const {
+  useGetSeriesRecomendationsQuery,
+  useGetMoviesRecomendationsQuery,
+} = discoverApi;

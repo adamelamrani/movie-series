@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { Movie, Movies } from '../../types/Movies';
+import { MovieDetails, Movies } from '../../types/Movies';
 import Video from '../../types/Video';
 
 export const moviesApi = createApi({
@@ -34,7 +34,7 @@ export const moviesApi = createApi({
 
     getMovieById: builder.query({
       query: (id: string) => `${id}`,
-      transformResponse: (response: Movie) => response,
+      transformResponse: (response: MovieDetails) => response,
     }),
 
     getMovieTrailer: builder.query({
