@@ -1,5 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { Movies } from '../../types/Movies';
+import { MovieDetails, Movies } from '../../types/Movies';
+import Video from '../../types/Video';
 
 export const moviesApi = createApi({
   reducerPath: 'moviesReducerApi',
@@ -30,6 +31,16 @@ export const moviesApi = createApi({
     getNowPlayingMovies: builder.query({
       query: () => 'now_playing',
     }),
+
+    getMovieById: builder.query({
+      query: (id: string) => `${id}`,
+      transformResponse: (response: MovieDetails) => response,
+    }),
+
+    getMovieTrailer: builder.query({
+      query: (id: string) => `${id}/videos?language=en-US`,
+      transformResponse: (response: Video) => response,
+    }),
   }),
 });
 
@@ -38,4 +49,6 @@ export const {
   useGetNowPlayingMoviesQuery,
   useGetTopRatedMoviesQuery,
   useGetUpcomingMoviesQuery,
+  useGetMovieByIdQuery,
+  useGetMovieTrailerQuery,
 } = moviesApi;

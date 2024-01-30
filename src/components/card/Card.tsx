@@ -9,15 +9,17 @@ interface CardProps {
   poster: string;
   vote_average: number;
   vote_count: number;
+  linkTo?: 'movie' | 'serie';
 }
 
-const Card = ({ id, title, poster, vote_average }: CardProps) => {
+const Card = ({ id, title, poster, vote_average, linkTo }: CardProps) => {
   const navigate = useNavigate();
   const imageUrlPrefix = 'https://image.tmdb.org/t/p/w500/';
+
   return (
     <li
       className={styles.cardContainer}
-      onClick={() => navigate(`/serie/${id}`)}
+      onClick={() => navigate(`/${linkTo}/${id}`)}
     >
       <img
         className={styles.movieImage}

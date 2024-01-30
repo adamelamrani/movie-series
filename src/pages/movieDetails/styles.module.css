@@ -1,0 +1,206 @@
+.movieDetailsBox {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  max-width: 1440px;
+}
+
+.sectionHeader {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: 0 2rem;
+  background: linear-gradient(to bottom, #0f0e0e, rgba(0, 0, 0, 0));
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.headerTitles {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  margin: 1rem 0;
+}
+
+.headerInfo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  margin: 1rem 0;
+  width: 50%;
+}
+
+.headingOne,
+.headingTwo,
+.headingThree {
+  margin: 0;
+  padding: 0;
+  font-family: 'League Gothic', sans-serif;
+  color: #ffeda6;
+}
+
+.movieDetailsImage {
+  height: 100%;
+  max-height: 400px;
+  margin: 0 auto;
+}
+
+.generalInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.imageAndVideo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 2rem;
+}
+
+p {
+  margin: 0;
+}
+
+.videoFrame {
+  aspect-ratio: 16/9;
+  max-height: 400px;
+  height: 100%;
+}
+
+.imageCard {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.movieInfo {
+  display: none;
+}
+
+.similarMovies,
+.overview {
+  max-width: 1440px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+}
+
+.overview p {
+  font-size: 1.2rem;
+  text-align: start;
+}
+
+.overViewImage {
+  display: none;
+}
+
+.recommendedTitle {
+  padding-left: 0;
+}
+
+@media screen and (max-width: 1000px) {
+  .imageAndVideo {
+    flex-direction: column-reverse;
+    align-items: center;
+    width: 100%;
+  }
+
+  .generalInfo {
+    margin: 0;
+  }
+  .videoFrame {
+    width: 100%;
+    max-width: 800px;
+  }
+
+  .imageCard {
+    display: none;
+  }
+
+  .overViewImage {
+    display: block;
+    height: 100%;
+    max-height: 250px;
+    margin-right: 1.2rem;
+  }
+
+  .overViewWithImage {
+    display: flex;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .imageCard {
+    display: flex;
+    padding: 2rem;
+    gap: 1rem;
+  }
+  .imageAndVideo {
+    flex-direction: column-reverse;
+    align-items: center;
+    padding: 0;
+  }
+
+  .overViewImage {
+    display: none;
+  }
+
+  .headingFour {
+    margin: 0;
+    padding: 0;
+    font-size: 1rem;
+    color: #ffeda6;
+    text-align: start;
+  }
+
+  .movieDetailsImage {
+    width: 100%;
+    margin: 0;
+    max-width: 120px;
+  }
+
+  .videoFrame {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .headerInfo {
+    display: none;
+  }
+
+  .movieInfo {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .movieInfo div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .videoFrame {
+    max-height: none;
+    max-width: none;
+  }
+
+  .similarMovies {
+    padding: 0;
+    margin: 0;
+  }
+  .overview {
+    padding: 0 2rem 1rem 2rem;
+    margin: 0;
+  }
+
+  .recommendedTitle {
+    padding-left: 2rem;
+  }
+}

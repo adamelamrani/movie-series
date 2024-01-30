@@ -29,6 +29,7 @@ const Movies = () => {
       <List>
         {data?.results.map((element) => (
           <Card
+            linkTo="movie"
             id={element.id}
             key={element.id}
             title={element.title}

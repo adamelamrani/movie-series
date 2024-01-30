@@ -29,6 +29,7 @@ const Series = () => {
       <List>
         {data?.results.map((element) => (
           <Card
+            linkTo="serie"
             id={element.id}
             key={element.id}
             title={element.name}
