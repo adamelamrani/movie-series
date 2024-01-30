@@ -9,6 +9,7 @@ import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { useGetSeriesRecomendationsQuery } from '../../redux/api/discoverApi';
 import Carousel from '../../components/carousel/Carousel';
 import Card from '../../components/card/Card';
+import noImage from '../../assets/no-image.jpg';
 
 const SerieDetails = () => {
   const posterPrefix = 'https://image.tmdb.org/t/p/w500/';
@@ -50,13 +51,16 @@ const SerieDetails = () => {
       <section className={styles.generalInfo}>
         <div className={styles.imageAndVideo}>
           <div className={styles.imageCard}>
-            {data?.poster_path && (
-              <img
-                className={styles.seriesDetailsImage}
-                src={`${posterPrefix}${data?.poster_path}`}
-                alt="Movie poster"
-              />
-            )}
+            <img
+              className={styles.seriesDetailsImage}
+              src={
+                data?.poster_path
+                  ? `${posterPrefix}${data?.poster_path}`
+                  : noImage
+              }
+              alt="Movie poster"
+            />
+
             <div className={styles.serieInfo}>
               <div>
                 <h4 className={styles.headingFour}>Score</h4>
@@ -88,13 +92,16 @@ const SerieDetails = () => {
       <section className={styles.overview}>
         <h2 className={styles.headingTwo}>Overview</h2>
         <div className={styles.overViewWithImage}>
-          {data?.poster_path && (
-            <img
-              className={styles.overViewImage}
-              src={`${posterPrefix}${data?.poster_path}`}
-              alt="Movie poster"
-            />
-          )}
+          <img
+            className={styles.overViewImage}
+            src={
+              data?.poster_path
+                ? `${posterPrefix}${data?.poster_path}`
+                : noImage
+            }
+            alt="Movie poster"
+          />
+
           <p>{data?.overview}</p>
         </div>
       </section>
@@ -112,6 +119,7 @@ const SerieDetails = () => {
               poster={element.poster_path}
               vote_average={element.vote_average}
               vote_count={element.vote_count}
+              serie={element}
             />
           ))}
         </Carousel>

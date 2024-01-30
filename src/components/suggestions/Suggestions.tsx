@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import MultiInterface from '../../types/Multi';
 import styles from './styles.module.css';
 
@@ -23,7 +24,15 @@ const Suggestions = ({
       className={isOpen ? styles.suggestionsBox : styles.closedBox}
     >
       {filteredResults.map((suggestion) => (
-        <div className={styles.suggestionCard} key={suggestion.id}>
+        <Link
+          to={
+            suggestion.media_type === 'movie'
+              ? `/movie/${suggestion.id}`
+              : `/serie/${suggestion.id}`
+          }
+          className={styles.suggestionCard}
+          key={suggestion.id}
+        >
           {suggestion.poster_path ? (
             <img
               className={styles.suggestionImage}
@@ -45,7 +54,7 @@ const Suggestions = ({
                 : suggestion.release_date}
             </p>
           </div>
-        </div>
+        </Link>
       ))}
     </div>
   );

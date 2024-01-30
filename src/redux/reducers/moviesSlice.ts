@@ -1,25 +1,47 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { Movies } from '../../types/Movies';
+import { Movie } from '../../types/Movies';
+import { SeriesResult } from '../../types/Series';
 
-const initialState: Movies = {
-  page: 0,
-  results: [],
-  total_pages: 0,
-  total_results: 0,
+interface Favourites {
+  movies: Movie[];
+  series: SeriesResult[];
+}
+
+const initialState: Favourites = {
+  movies: [],
+  series: [],
 };
 
 export const moviesSlice = createSlice({
   name: 'moviesReducerApi',
   initialState,
   reducers: {
-    setMovies: (state, action: PayloadAction<Movies>) => {
-      state.results = action.payload.results;
-      state.page = action.payload.page;
-      state.total_pages = action.payload.total_pages;
-      state.total_results = action.payload.total_results;
+    addMovieToFavourites: (state, action: PayloadAction<Movie>) => {
+      state.movies = [...state.movies, action.payload];
+    },
+    removeMovieFromFavourites: (state, action: PayloadAction<Movie>) => {
+      state.movies = state.movies.filter(
+        (movie) => movie.id !== action.payload.id,
+      );
+    },
+    addSeriesToFavourites: (state, action: PayloadAction<SeriesResult>) => {
+      state.series = [...state.series, action.payload];
+    },
+    removeSeriesFromFavourites: (
+      state,
+      action: PayloadAction<SeriesResult>,
+    ) => {
+      state.series = state.series.filter(
+        (series) => series.id !== action.payload.id,
+      );
     },
   },
 });
 
-export const { setMovies } = moviesSlice.actions;
+export const {
+  addMovieToFavourites,
+  removeMovieFromFavourites,
+  addSeriesToFavourites,
+  removeSeriesFromFavourites,
+} = moviesSlice.actions;
 export default moviesSlice.reducer;

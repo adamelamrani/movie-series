@@ -1,5 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import SeriesInterface from '../../types/Series';
+import { Movies } from '../../types/Movies';
 
 export const discoverApi = createApi({
   reducerPath: 'discoverApi',
@@ -22,7 +23,7 @@ export const discoverApi = createApi({
     getMoviesRecomendations: builder.query({
       query: (id: string) =>
         `movie/${id}/recommendations?language=en-US&page=1`,
-      transformResponse: (response: SeriesInterface) => response,
+      transformResponse: (response: Movies) => response,
     }),
   }),
 });
