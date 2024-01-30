@@ -5,14 +5,23 @@ import {
 } from '../../redux/api/seriesApi';
 import styles from './styles.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faStar } from '@fortawesome/free-solid-svg-icons';
+import { faStar, faBookmark } from '@fortawesome/free-solid-svg-icons';
+import { faBookmark as emptyBookmark } from '@fortawesome/free-regular-svg-icons';
 import { useGetSeriesRecomendationsQuery } from '../../redux/api/discoverApi';
 import Carousel from '../../components/carousel/Carousel';
 import Card from '../../components/card/Card';
 import noImage from '../../assets/no-image.jpg';
+import { useAppDispatch, useAppSelector } from '../../redux/store';
+import { SeriesDetailsInterface, SeriesResult } from '../../types/Series';
+import {
+  addSeriesToFavourites,
+  removeSeriesFromFavourites,
+} from '../../redux/reducers/moviesSlice';
 
 const SerieDetails = () => {
   const posterPrefix = 'https://image.tmdb.org/t/p/w500/';
+  const favouriteSeries = useAppSelector((state) => state.movies.series);
+  const dispatch = useAppDispatch();
   const { id } = useParams<{ id: string }>();
   const { data } = useGetSeriesDetailsQuery(id as string, {});
   const { data: video } = useGetSerieTrailerQuery(id as string, {});
@@ -24,12 +33,31 @@ const SerieDetails = () => {
     (element) => element.type === 'Trailer',
   );
 
+  const isFavourite = favouriteSeries.some(
+    (element) => element.id === data?.id,
+  );
+
+  const addOrRemoveSerie = (serie: SeriesResult) => {
+    if (isFavourite) {
+      dispatch(removeSeriesFromFavourites(serie));
+    } else {
+      dispatch(addSeriesToFavourites(serie));
+    }
+  };
+
   return (
     <div className={styles.serieDetailsBox}>
       <header className={styles.sectionHeader}>
         <div className={styles.headerTitles}>
           <h1 className={styles.headingOne}>{data?.name}</h1>
+          <FontAwesomeIcon
+            className={styles.bookMark}
+            onClick={() => addOrRemoveSerie(data as SeriesDetailsInterface)}
+            icon={isFavourite ? faBookmark : emptyBookmark}
+            color="yellow"
+          />
         </div>
+
         <div className={styles.headerInfo}>
           <div>
             <h4 className={styles.headingFour}>Total score</h4>

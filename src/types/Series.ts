@@ -6,9 +6,9 @@ export default interface SeriesInterface {
 }
 
 export interface SeriesResult {
-  adult: boolean;
+  adult?: boolean;
   backdrop_path: string;
-  genre_ids: number[];
+  genre_ids?: number[];
   id: number;
   origin_country: string[];
   original_language: string;
