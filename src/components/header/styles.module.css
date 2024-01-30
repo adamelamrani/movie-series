@@ -3,5 +3,17 @@
   display: flex;
   align-items: center;
   font-family: 'League Gothic', sans-serif;
+  justify-content: center;
   color: #ffeda6;
+}
+
+@media screen and (max-width: 768px) {
+  .logo {
+    display: none;
+  }
+
+  .heading {
+    text-align: center;
+    padding: 1rem;
+  }
 }

@@ -5,6 +5,7 @@ import { setupListeners } from '@reduxjs/toolkit/query';
 import moviesReducer from './reducers/moviesSlice';
 import { seriesApi } from './api/seriesApi';
 import { multiApi } from './api/multiApi';
+import { discoverApi } from './api/discoverApi';
 
 const rootReducer = combineReducers({
   movies: moviesReducer,
@@ -16,12 +17,14 @@ export const store = configureStore({
     [moviesApi.reducerPath]: moviesApi.reducer,
     [seriesApi.reducerPath]: seriesApi.reducer,
     [multiApi.reducerPath]: multiApi.reducer,
+    [discoverApi.reducerPath]: discoverApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware()
       .concat(moviesApi.middleware)
       .concat(seriesApi.middleware)
-      .concat(multiApi.middleware),
+      .concat(multiApi.middleware)
+      .concat(discoverApi.middleware),
 });
 
 setupListeners(store.dispatch);

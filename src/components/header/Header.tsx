@@ -8,8 +8,13 @@ interface HeaderProps {
 const Header = ({ title }: HeaderProps) => {
   return (
     <header className={styles.headerContainer}>
-      <img src={Logo} width={100} alt="Movie Series Logo" />
-      <h1>{title}</h1>
+      <img
+        className={styles.logo}
+        src={Logo}
+        width={100}
+        alt="Movie Series Logo"
+      />
+      <h1 className={styles.heading}>{title}</h1>
     </header>
   );
 };

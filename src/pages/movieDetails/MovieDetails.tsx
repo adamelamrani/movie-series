@@ -18,7 +18,9 @@ const MovieDetails = () => {
     <div>
       <Header title={data?.title as string} />
       <p>{data?.overview}</p>
-      <img src={`${posterPrefix}${data?.poster_path}`} alt="Movie poster" />
+      {data?.poster_path && (
+        <img src={`${posterPrefix}${data?.poster_path}`} alt="Movie poster" />
+      )}
       <iframe
         width="853"
         height="480"
