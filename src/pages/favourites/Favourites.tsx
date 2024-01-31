@@ -8,7 +8,7 @@ const Favourites = () => {
   return (
     <>
       <Header title="" />
-      <h2>Now in Theatres</h2>
+      <h2>My favourite movies</h2>
       <Carousel>
         {favouritesState.movies?.map((element) => (
           <Card
@@ -23,7 +23,7 @@ const Favourites = () => {
           />
         ))}
       </Carousel>
-      <h2>Popular Series</h2>
+      <h2>My favourite series</h2>
       <Carousel>
         {favouritesState.series?.map((element) => (
           <Card
