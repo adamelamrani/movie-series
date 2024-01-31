@@ -8,6 +8,7 @@ import MovieDetails from '../pages/movieDetails/MovieDetails';
 import SerieDetails from '../pages/serieDetails/SerieDetails';
 import ScrollToTop from '../utils/scroll/Scroll';
 import Favourites from '../pages/favourites/Favourites';
+import Footer from '../components/footer/Footer';
 
 const MainLayout = () => {
   ScrollToTop();
@@ -26,6 +27,7 @@ const MainLayout = () => {
         {/*Error page*/}
         <Route path="*" Component={Error} />
       </Routes>
+      <Footer />
     </>
   );
 };

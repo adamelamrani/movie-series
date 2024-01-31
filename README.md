@@ -73,3 +73,16 @@ yarn watch-ts
 ## Deployment
 
 The project is deployed on [Vercel](https://movie-series-orcin.vercel.app/).
+
+## Next steps
+
+- Add more tests
+  - Integration tests for the components with requests
+  - Unit tests for all the components
+- Add more features
+  - Show a list of similar movies/series depending on your preferences
+  - Add more information for movies and series
+  - Add filters in each section
+    - such as: genre, year, rating, etc.
+- Save the global state in the local storage
+- Add a loading template to always have a page structure, even if the data is not loaded yet
