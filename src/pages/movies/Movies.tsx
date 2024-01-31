@@ -4,6 +4,7 @@ import List from '../../components/list/List';
 import { useGetTopRatedMoviesQuery } from '../../redux/api/moviesApi';
 import { FetchErrorTMDB } from '../../types/ErrorTMDB';
 import { Movies as MoviesType } from '../../types/Movies';
+import styles from './styles.module.css';
 
 const Movies = () => {
   const { data, error } = useGetTopRatedMoviesQuery<{
@@ -13,7 +14,7 @@ const Movies = () => {
   }>({});
 
   return (
-    <>
+    <div className={styles.moviesComponent}>
       {error && (
         <>
           <p>
@@ -40,7 +41,7 @@ const Movies = () => {
           />
         ))}
       </List>
-    </>
+    </div>
   );
 };
 

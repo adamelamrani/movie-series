@@ -4,6 +4,7 @@ import List from '../../components/list/List';
 import { useGetTopRatedSeriesQuery } from '../../redux/api/seriesApi';
 import { FetchErrorTMDB } from '../../types/ErrorTMDB';
 import SeriesInterface from '../../types/Series';
+import styles from './styles.module.css';
 
 const Series = () => {
   const { data, error } = useGetTopRatedSeriesQuery<{
@@ -13,7 +14,7 @@ const Series = () => {
   }>({});
 
   return (
-    <>
+    <div className={styles.seriesComponent}>
       {error && (
         <>
           <p>
@@ -40,7 +41,7 @@ const Series = () => {
           />
         ))}
       </List>
-    </>
+    </div>
   );
 };
 
