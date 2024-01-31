@@ -1,20 +1,22 @@
 import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import App from './App';
+import { Provider } from 'react-redux';
+import { store } from './redux/store';
+import { BrowserRouter } from 'react-router-dom';
 
 describe('Given an App component', () => {
-  render(<App />);
+  render(
+    <Provider store={store}>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </Provider>,
+  );
   describe('When it is rendered', () => {
-    it('It should render two images and a heading', () => {
-      const image = screen.getAllByRole('img');
-      const heading = screen.getByRole('heading');
-      expect(image.length).toBe(2);
-      image.forEach((element) => {
-        expect(element).toBeInTheDocument();
-        expect(element).toHaveClass('logo' || 'logo react');
-      });
-      expect(heading).toBeInTheDocument();
-      expect(heading.textContent).toBe('Vite + React');
+    it('It should render a header', () => {
+      const header = screen.getByRole('banner');
+      expect(header).toBeInTheDocument();
     });
   });
 });
