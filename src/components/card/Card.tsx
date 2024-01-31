@@ -17,7 +17,7 @@ import {
 interface CardProps {
   id: number;
   title: string;
-  poster: string;
+  poster: string | null;
   vote_average: number;
   vote_count: number;
   movie?: Movie;

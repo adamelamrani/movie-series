@@ -15,7 +15,7 @@ export interface SeriesResult {
   original_name: string;
   overview: string;
   popularity: number;
-  poster_path: string;
+  poster_path: string | null;
   first_air_date: string;
   name: string;
   vote_average: number;
@@ -44,7 +44,7 @@ export interface SeriesDetailsInterface {
   original_name: string;
   overview: string;
   popularity: number;
-  poster_path: string;
+  poster_path: string | null;
   production_companies: [];
   seasons: Season[];
   status: string;
@@ -60,7 +60,7 @@ interface Season {
   id: number;
   name: string;
   overview: string;
-  poster_path: string;
+  poster_path: string | null;
   season_number: number;
 }
 
