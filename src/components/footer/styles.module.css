@@ -1,0 +1,13 @@
+.footer {
+  background: linear-gradient(to top, #0f0e0e, rgba(0, 0, 0, 0));
+  color: #fff;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  font-size: 16px;
+}

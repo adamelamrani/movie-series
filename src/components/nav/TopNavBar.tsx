@@ -12,9 +12,7 @@ const TopNavBar = () => {
   const [query, setQuery] = useState('');
   const [suggestionsOpen, setSuggestionsOpen] = useState(false);
   const suggestionsRef = useRef(null);
-  const handleMenuToggle = () => {
-    setMenuOpen(!menuOpen);
-  };
+
   const [getAnyResult, { data, error }] = useGetAnyResultMutation();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -57,32 +55,35 @@ const TopNavBar = () => {
   return (
     <nav className={styles.topNav}>
       <div className={styles.navContainer}>
-        <button className={styles.burgerMenu} onClick={handleMenuToggle}>
+        <button
+          className={styles.burgerMenu}
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
           ☰
         </button>
         <ul className={`${styles.navList} ${menuOpen ? styles.active : ''}`}>
           <li className={styles.logo}>
-            <Link to="/" onClick={handleMenuToggle}>
+            <Link to="/" onClick={() => setMenuOpen(false)}>
               <img src={logo} alt="Movie Series Logo" width={40} height={40} />
             </Link>
           </li>
           <li>
-            <Link to={'/'} onClick={handleMenuToggle}>
+            <Link to={'/'} onClick={() => setMenuOpen(false)}>
               Home
             </Link>
           </li>
           <li>
-            <Link to={'/series'} onClick={handleMenuToggle}>
+            <Link to={'/series'} onClick={() => setMenuOpen(false)}>
               Series
             </Link>
           </li>
           <li>
-            <Link to={'/movies'} onClick={handleMenuToggle}>
+            <Link to={'/movies'} onClick={() => setMenuOpen(false)}>
               Movies
             </Link>
           </li>
           <li>
-            <Link to={'/favourites'} onClick={handleMenuToggle}>
+            <Link to={'/favourites'} onClick={() => setMenuOpen(false)}>
               My Favourites
             </Link>
           </li>

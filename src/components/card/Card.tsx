@@ -17,7 +17,7 @@ import {
 interface CardProps {
   id: number;
   title: string;
-  poster: string;
+  poster: string | null;
   vote_average: number;
   vote_count: number;
   movie?: Movie;
@@ -68,7 +68,7 @@ const Card = ({
         onClick={() => navigate(`/${linkTo}/${id}`)}
         className={styles.movieImage}
         src={poster ? `${imageUrlPrefix}${poster}` : noImage}
-        alt={`Image poster from movie ${title}`}
+        alt={`Image poster from ${movie ? 'movie' : 'serie'} ${title}`}
       />
       <div className={styles.titleBox}>
         <div className={styles.titleHeader}>
@@ -80,6 +80,7 @@ const Card = ({
         </div>
       </div>
       <FontAwesomeIcon
+        title="bookmark"
         icon={isFavouriteMovie || isFavouriteSerie ? faBookmark : emptyBookmark}
         className={styles.bookmarkIcon}
         onClick={() =>
