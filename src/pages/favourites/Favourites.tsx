@@ -2,11 +2,12 @@ import Card from '../../components/card/Card';
 import Carousel from '../../components/carousel/Carousel';
 import Header from '../../components/header/Header';
 import { useAppSelector } from '../../redux/store';
+import styles from './styles.module.css';
 
 const Favourites = () => {
   const favouritesState = useAppSelector((state) => state.movies);
   return (
-    <>
+    <div className={styles.favouritesComponent}>
       <Header title="" />
       <h2>My favourite movies</h2>
       <Carousel>
@@ -46,7 +47,7 @@ const Favourites = () => {
           <p>You don't have any favourite series yet</p>
         )}
       </Carousel>
-    </>
+    </div>
   );
 };
 

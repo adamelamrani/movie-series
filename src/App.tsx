@@ -22,7 +22,7 @@ function App() {
   }>({});
 
   return (
-    <>
+    <div className="appMainContainer">
       {error && (
         <>
           <p>
@@ -76,7 +76,7 @@ function App() {
           />
         ))}
       </Carousel>
-    </>
+    </div>
   );
 }
 
