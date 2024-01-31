@@ -1,11 +1,11 @@
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import MultiInterface from '../../types/Multi';
 import styles from './styles.module.css';
 
 interface SuggestionsProps {
   suggestions: MultiInterface;
   isOpen: boolean;
-  suggestionRef: React.RefObject<HTMLDivElement>;
+  suggestionRef: React.RefObject<HTMLUListElement>;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
@@ -15,25 +15,28 @@ const Suggestions = ({
   suggestionRef,
   setOpen,
 }: SuggestionsProps) => {
+  const navigate = useNavigate();
   const imageUrlPrefix = 'https://image.tmdb.org/t/p/w500/';
   const filteredResults = suggestions.results.filter(
     (result) => result.media_type !== 'person',
   );
 
   return (
-    <div
+    <ul
       ref={suggestionRef}
       className={isOpen ? styles.suggestionsBox : styles.closedBox}
     >
       {filteredResults.map((suggestion) => (
-        <Link
-          to={
-            suggestion.media_type === 'movie'
-              ? `/movie/${suggestion.id}`
-              : `/serie/${suggestion.id}`
-          }
+        <li
           className={styles.suggestionCard}
-          onClick={() => setOpen(false)}
+          onClick={() => {
+            navigate(
+              suggestion.media_type === 'movie'
+                ? `/movie/${suggestion.id}`
+                : `/serie/${suggestion.id}`,
+            );
+            setOpen(false);
+          }}
           key={suggestion.id}
         >
           {suggestion.poster_path ? (
@@ -57,9 +60,9 @@ const Suggestions = ({
                 : suggestion.release_date}
             </p>
           </div>
-        </Link>
+        </li>
       ))}
-    </div>
+    </ul>
   );
 };
 
