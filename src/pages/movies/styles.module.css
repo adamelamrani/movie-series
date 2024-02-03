@@ -1,3 +1,5 @@
 .moviesComponent {
   height: 100%;
+  max-width: 1440px;
+  width: 100%;
 }
