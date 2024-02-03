@@ -5,13 +5,10 @@
   font-family: 'League Gothic', sans-serif;
   justify-content: center;
   color: #ffeda6;
+  margin: 1.5rem 0;
 }
 
 @media screen and (max-width: 768px) {
-  .logo {
-    display: none;
-  }
-
   .heading {
     text-align: center;
     padding: 1rem;
