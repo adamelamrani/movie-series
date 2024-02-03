@@ -2,19 +2,22 @@ import Logo from '../../assets/M.png';
 import styles from './styles.module.css';
 
 interface HeaderProps {
-  title: string;
+  title?: string;
+  logo?: boolean;
 }
 
-const Header = ({ title }: HeaderProps) => {
+const Header = ({ title, logo }: HeaderProps) => {
   return (
     <header className={styles.headerContainer}>
-      <img
-        className={styles.logo}
-        src={Logo}
-        width={100}
-        alt="Movie Series Logo"
-      />
-      <h1 className={styles.heading}>{title}</h1>
+      {logo && (
+        <img
+          className={styles.logo}
+          src={Logo}
+          width={100}
+          alt="Movie Series Logo"
+        />
+      )}
+      {title && <h1 className={styles.heading}>{title}</h1>}
     </header>
   );
 };

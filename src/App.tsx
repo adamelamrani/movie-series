@@ -34,7 +34,7 @@ function App() {
         </>
       )}
 
-      <Header title="" />
+      <Header title="" logo />
       <h2>Now in Theatres</h2>
       <Carousel>
         {data?.results.map((element) => (
