@@ -20,4 +20,6 @@ h2 {
 
 .appMainContainer {
   height: 100%;
+  max-width: 1440px;
+  width: 100%;
 }
